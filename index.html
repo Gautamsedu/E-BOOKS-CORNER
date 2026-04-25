@@ -4,6 +4,100 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABS School</title>
+  <style>
+        /* 1. Basic Settings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 2. Header/Navbar Setup */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        /* 3. Hero Section (Main Text) */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem; /* Laptop size */
+            font-weight: bold;
+            color: #1a237e;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* 4. MOBILE RESPONSIVE SETTINGS (Ye hai asli cheez) */
+        @media (max-width: 768px) {
+            /* Mobile par font chota ho jayega */
+            .hero h1 {
+                font-size: 2rem; 
+            }
+
+            /* Nav links ko mobile par manage karna */
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                font-size: 14px;
+                gap: 10px;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><strong>DISHA PUBLIC SCHOOL</strong></div>
+        <ul class="nav-links">
+            <li>Home</li>
+            <li>About</li>
+            <li>E-Books</li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>DISHA PUBLIC SCHOOL <br> E-BOOKS CENTER</h1>
+        <p>A New Era of Interactive Education</p>
+    </div>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
