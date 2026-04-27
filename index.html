@@ -4,21 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ABS School</title>
-  
+
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+
+
 <style>
-  /* CSS yahan aayega jo pehle se likha hai */
-  * {
+
+
+/* CSS yahan aayega jo pehle se likha hai */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-</style>
+}
 
-<style>
-    
+
 /* ================= RESET ================= */
 *{
     margin:0;
@@ -34,6 +37,7 @@ body{
     min-height:100vh;
 }
 
+
 /* floating blobs */
 body::before,
 body::after{
@@ -46,11 +50,15 @@ body::after{
     z-index:-1;
 }
 
+
+
 body::before{
     top:10%;
     left:5%;
     background:rgba(99,102,241,0.3);
 }
+
+
 
 body::after{
     bottom:10%;
@@ -58,99 +66,160 @@ body::after{
     background:rgba(59,130,246,0.3);
 }
 
+
 /* ================= NAVBAR ================= */
-.navbar{
-    position:fixed;
-    top:0;
-    width:100%;
-    padding:15px 30px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    background:rgba(255,255,255,0.4);
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid rgba(255,255,255,0.3);
-    z-index:1000;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.logo{
-    font-size:20px;
-    font-weight:600;
-    color:#1f2937;
+
+.logo {
+    font-size: clamp(1.1rem, 2vw, 1.6rem); /* Name auto-resize hoga */
+    font-weight: 800;
+    color: #1a237e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
-.menu{
-    display:flex;
+
+.menu {
+    display: flex;
+    gap: 20px;
 }
 
-.menu a{
-    margin-left:25px;
-    text-decoration:none;
-    color:#374151;
-    position:relative;
+
+.menu a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.3s;
 }
 
-.menu a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0%;
-    height:2px;
-    background:#6366f1;
-    transition:0.3s;
+
+.menu a:hover {
+    color: #2563eb;
 }
 
-.menu a:hover::after,
-.menu a.active::after{
-    width:100%;
+
+/* --- MOBILE RESPONSIVE NAVBAR --- */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column; /* Phone par name upar, menu niche */
+        gap: 8px;
+        padding: 10px 5%;
+        text-align: center;
+    }
+    
+    .logo {
+        font-size: 1.2rem; /* Mobile par fix size taaki screen se bahar na jaye */
+    }
+
+    .menu {
+        gap: 15px;
+    }
+    
+    .menu a {
+        font-size: 13px;
+    }
 }
+
 
 /* ================= HERO ================= */
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
+.hero {
+    height: auto !important; 
+    padding: 120px 20px 40px; /* Thoda top padding zyada di hai navbar ke liye */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero h1{
-    font-size:60px;
-    color:#111827;
+.hero h1 {
+    /* Mobile par chota, Laptop par bada, apne aap! */
+    font-size: clamp(1.8rem, 6vw, 4rem) !important; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 15px auto;
+    white-space: normal; /* Name ko wrap hone dega lekin bade size mein */
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 0 10px;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.3rem); /* Subtitle bhi auto-resize hoga */
+    color: #6b7280;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+/* Tablet aur Laptop ke liye bada size */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
 }
 
 .hero p{
     font-size:20px;
+    text-align: center;
     color:#6b7280;
     margin-top:10px;
 }
+
 
 /* ================= SECTION ================= */
-section{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:60px 20px;
+section {
+    min-height: auto !important; 
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-section h1{
-    font-size:40px;
-    color:#111827;
+section h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem) !important;
+    margin-bottom: 20px;
 }
 
-section p{
-    font-size:18px;
-    color:#6b7280;
-    margin-top:10px;
+section p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem) !important;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
+
+
+/* About Section specifically for Mobile fix */
+#about {
+    min-height: auto !important; 
+    padding: 80px 20px !important;
+}
+
+#about p {
+    font-size: 1rem !important;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
 
 /* ================= EBOOK ================= */
 #ebooks{
@@ -162,26 +231,27 @@ section p{
     margin-bottom:20px;
 }
 
+
 /* filters */
-.filters{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding:10px;
-    margin-bottom:20px;
+.filters {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* Side slide enable karega */
+    padding: 15px;
+    width: 100%;
+    scrollbar-width: none; /* Scrollbar chhupayega */
+    -ms-overflow-style: none;
 }
 
-.filters button{
-    padding:10px 18px;
-    border-radius:12px;
-    border:none;
-    cursor:pointer;
+.filters::-webkit-scrollbar {
+    display: none; /* Chrome/Safari mein scrollbar hide */
+}
 
-    background:rgba(255,255,255,0.4);
-    backdrop-filter:blur(15px);
-
-    color:#374151;
-    border:1px solid rgba(255,255,255,0.4);
+.filters button {
+    flex: 0 0 auto; /* Buttons ko dabne se rokega (pichakne nahi dega) */
+    white-space: nowrap; /* Text ko ek line mein rakhega */
+    padding: 10px 20px;
+    border-radius: 12px;
 }
 
 .filters button.active{
@@ -189,28 +259,43 @@ section p{
     color:white;
 }
 
+
 /* ================= GRID ================= */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:20px;
-    max-width:1200px;
-    margin:auto;
+.grid {
+    display: grid;
+    /* By default (Mobile par) 1 Column */
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
 }
 
+/* Jab screen Laptop jitni badi ho (768px se upar) */
+@media (min-width: 768px) {
+    .grid {
+        /* Desktop par 3 Columns */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+
 /* ================= CARD ================= */
-.card{
-    background:rgba(255,255,255,0.35);
-    backdrop-filter:blur(20px);
+.card {
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: 0.3s;
+    width: 100%; /* Card poori width lega */
+}
 
-    border:1px solid rgba(255,255,255,0.5);
-    border-radius:20px;
-
-    padding:25px;
-    text-align:center;
-
-    position:relative;
-    transition:0.3s;
+.icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    font-size: 30px;
 }
 
 /* hover */
@@ -232,6 +317,7 @@ section p{
     padding:4px 10px;
     border-radius:20px;
 }
+
 
 /* ================= PREMIUM ICON FIX ================= */
 .icon{
@@ -258,6 +344,7 @@ section p{
     animation:float 3s ease-in-out infinite;
 }
 
+
 /* hover icon */
 .card:hover .icon{
     background: linear-gradient(135deg, #6366f1, #4f46e5);
@@ -268,11 +355,13 @@ section p{
         0 0 20px rgba(99,102,241,0.3);
 }
 
+
 /* title */
-.card h3{
-    margin-top:10px;
-    color:#111827;
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
 }
+
 
 /* button */
 .card a{
@@ -294,14 +383,34 @@ section p{
     color:white;
 }
 
+
 /* ================= ANIMATION ================= */
 @keyframes float{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(-8px);}
 }
 
+@media (max-width: 480px) {
+    .card {
+        padding: 15px 10px; /* Card ki andar ki padding kam kar di */
+    }
+    .icon {
+        width: 50px; /* Icon thoda chota */
+        height: 50px;
+        font-size: 20px;
+    }
+    .card h3 {
+        font-size: 14px; /* Heading thodi choti taaki ek line mein aaye */
+    }
+    .card a {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+}
+
 </style>
 </head>
+
 
 <body>
 
@@ -316,6 +425,7 @@ section p{
     </div>
 </div>
 
+
 <!-- HERO -->
 <section id="home" class="hero">
     <h1 data-aos="fade-up"data-aos-delay="300">DISHA PUBLIC SCHOOL </h1>
@@ -323,13 +433,14 @@ section p{
     <p data-aos="fade-up" data-aos-delay="900">A New Era of Interactive Education</p>
 </section>
 
+
 <!-- ABOUT -->
 <section id="about">
-    <h1>About Us</h1>
+    <h1 data-aos="fade-up"data-aos-delay="1200">About Us</h1>
     <p>We use technology to make learning easy and fun. <br> Our goal is a bright future for every student.</p>
 </section>
 
-<!-- EBOOK -->
+
 <!-- EBOOK -->
 <section id="ebooks">
 
@@ -438,6 +549,7 @@ section p{
 
 </div>
 </section>
+
 
 <script>
 // filter
